@@ -3,41 +3,21 @@ import logging
 import json
 import silence_tensorflow.auto
 
-import warnings
 import sys
 import spacy
 from spacy_syllables import SpacySyllables
 from collections import defaultdict, Counter
 from gutenhaiku.cleaner import strip_headers
 from gutenhaiku import models
+from gutenhaiku import utils
 
-with warnings.catch_warnings():
-    warnings.filterwarnings("ignore", category=FutureWarning)
-    import tensorflow as tf
-    from tensorflow import keras
-    from tensorflow.keras.preprocessing.text import Tokenizer
 
-    stderr = sys.stderr
-    stdout = sys.stdout
-    err = None
-    try:
+with utils.supress_output():
+    from deepcorrect import DeepCorrect
 
-        sys.stderr = open(os.devnull, "w")
-        sys.stdout = open(os.devnull, "w")
-
-        from deepcorrect import DeepCorrect
-
-        corrector = DeepCorrect(
-            models.MODEL_PATHS["params"], models.MODEL_PATHS["checkpoint"]
-        )
-    except Exception as e:
-        err = e
-    finally:
-        sys.stdout = stdout
-        sys.stderr = stderr
-
-    if err:
-        raise err
+    corrector = DeepCorrect(
+        models.MODEL_PATHS["params"], models.MODEL_PATHS["checkpoint"]
+    )
 
 
 nlp = spacy.load("en_core_web_sm")

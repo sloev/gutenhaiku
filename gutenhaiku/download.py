@@ -1,7 +1,8 @@
 import os
 import time
-from gutenhaiku import models
+from gutenhaiku import models, utils
 import requests
+from spacy import cli as spacy_cli
 
 LINKS = dict(
     params="https://github.com/sloev/gutenhaiku/releases/download/models.v.1.0.0/deeppunct_params_en",
@@ -10,6 +11,8 @@ LINKS = dict(
 
 
 def download_models(click_progress_bar=None):
+    with utils.supress_output():
+        spacy_cli.download("en_core_web_sm", False, '--quiet', '--disable-pip-version-check')
 
     for what, url in LINKS.items():
         response = requests.get(url, stream=True)
