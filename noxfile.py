@@ -17,7 +17,7 @@ def install_pyenv_versions(session):
     session.run("pyenv", "install", "-s", "3.8.0", external=True, silent=True)
 
 
-@nox.session(python=["3.7", "3.8"], reuse_venv=True)
+@nox.session(python=["3.7"], reuse_venv=True)
 def test(session):
     session.run("poetry", "install", external=True, silent=True)
     session.run("pytest", "tests", silent=True)

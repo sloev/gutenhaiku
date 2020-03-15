@@ -6,8 +6,6 @@ matrix:
   include:
   - python: '3.7'
     env: NOXSESSION="test-3.7"
-  - python: '3.8'
-    env: NOXSESSION="test-3.8"
   - python: '3.7'
     env: NOXSESSION="lint"
     
@@ -16,7 +14,7 @@ before_install:
   - pip install poetry
 
 install:
-  - poetry install
+  - poetry install --no-root
 
 script:
   - poetry run nox --non-interactive --session "$NOXSESSION"

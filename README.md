@@ -1,4 +1,4 @@
-![guten haiku](header.png)
+<img src="https://github.com/sloev/gutenhaiku/raw/master/assets/header.png" width="400"/>
 
 # Guten Haiku
 
@@ -8,6 +8,7 @@ A Commandline tool to mine haiku poems from text
 
 * 80's cli interface with **colors**
 * Works great with gutenberg books thx to a builtin cleaner script from [Peyman Mohseni Kiasari](https://github.com/kiasar/gutenberg_cleaner)
+* Reconstructs punctuation of haikus using [deepcorrect](https://github.com/bedapudi6788/deepcorrect)
 * Appends json haiku's to a file
 
 ## Install
@@ -16,9 +17,19 @@ A Commandline tool to mine haiku poems from text
 $ pip install gutenhaiku
 ```
 
+Then you need to download the models in cache:
+
+```bash
+$ gutenhaiku setup
+```
+
 ## Usage
 
-[![asciicast](https://asciinema.org/a/9dSu3L5D7OzaOg1p5lOXNF8TC.svg)](https://asciinema.org/a/9dSu3L5D7OzaOg1p5lOXNF8TC)
+```bash
+$ gutenhaiku -f frankenstein.txt -a 'mary shelley' -t 'frankenstein' -d '1818-01-01'
+```
+
+<a target="_blank" href="https://asciinema.org/a/9dSu3L5D7OzaOg1p5lOXNF8TC"><img src="https://github.com/sloev/gutenhaiku/raw/master/assets/gutenhaiku.gif" width="600"/></a>
 
 ```bash
 Wat?             Guten Haiko lets you extract haiku poems from text
@@ -41,4 +52,34 @@ Advanced usage:  gutenhaiku \
                  -a 'Bram Stoker' \
                  -t 'dracula' \
                  -d '1897-05-26'
+
+setup:           gutenhaiku setup
+                 downloads AI models
+
+```
+
+### Output format
+
+*example from [assets](assets/frankenstein_haiku.json)*
+```json
+{
+    "page": 261,
+    "word_number": 65407,
+    "haiku": [
+        "He pointed towards.",
+        "The corpse of my wife I rushed.",
+        "Towards the window."
+    ],
+    "author": "mary shelley",
+    "title": "frankenstein",
+    "date": "1818-01-01T00:00:00"
+}
+```
+
+## Dev
+
+Run tests with 
+
+```bash
+$ poetry run nox
 ```

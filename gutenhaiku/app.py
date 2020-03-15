@@ -111,7 +111,11 @@ USAGE = (
     + "                 -f dracula.txt \\\n"
     + "                 -a 'Bram Stoker' \\\n"
     + "                 -t 'dracula' \\\n"
-    + "                 -d '1897-05-26'\n"
+    + "                 -d '1897-05-26'\n\n"
+    + green
+    + f"setup:           {magenta}gutenhaiku{yellow} setup\n"
+    + green
+    + "                 downloads AI models\n"
     + green
 )
 

@@ -1,4 +1,4 @@
-]2;Guten Haiko
+]2;Guten Haiku
 
 
 
@@ -31,4 +31,6 @@
 
 
 
-Models are already downloaded, exiting
+Downloading models
+
+Done

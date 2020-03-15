@@ -31,29 +31,4 @@
 
 
 
-
-
-Wat?             Guten Haiko lets you extract haiku poems from text
-Usage:           gutenhaiku \
-                 -f frankenstein.txt \
-                 -a 'Mary Wollstonecraft Shelley' \
-                 -t 'frankenstein' \
-                 -d '1818-01-01'
-Optional params: --commandfile [-cf] a file with comma seperated 
-                                     values for f,a,t,d params
-                 --outputfile   [-o] the output file path [default haiku.json
-                 --eighties     [-e] eighties mode [default 1]
-
-Advanced usage:  gutenhaiku \
-                 -f frankenstein.txt \
-                 -a 'Mary Wollstonecraft Shelley' \
-                 -t 'frankenstein' \
-                 -d '1818-01-01' \
-                 -f dracula.txt \
-                 -a 'Bram Stoker' \
-                 -t 'dracula' \
-                 -d '1897-05-26'
-
-setup:           gutenhaiku setup
-                 downloads AI models
-
+Models are already downloaded, exiting
