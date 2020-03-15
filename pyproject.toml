@@ -33,6 +33,7 @@ silence_tensorflow = "^1.1.1"
 colorama = "^0.4.3"
 en-core-web-sm = {url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz"}
 numpy = "1.16.4"
+tensorboard = "1.14.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.5"

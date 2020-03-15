@@ -218,6 +218,7 @@ spacy = ">=2.2.0"
 reference = ""
 type = "url"
 url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz"
+
 [[package]]
 category = "main"
 description = "Python 3.4 Enum backported to 3.3, 3.2, 3.1, 2.7, 2.6, 2.5, and 2.4"
@@ -932,7 +933,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "949f532906d01a3ceb06e3bbad52c7c035111985c2caa97e568299280c8a1977"
+content-hash = "a96aadf3d94d7374295c1a24241a9e92fb05adbf11597ccc9cfbe955752b31b2"
 python-versions = "^3.7"
 
 [metadata.files]
