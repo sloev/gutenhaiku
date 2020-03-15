@@ -11,11 +11,12 @@ from collections import defaultdict, Counter
 from gutenhaiku.cleaner import strip_headers
 from gutenhaiku import models
 
-with warnings.catch_warnings():  
-    warnings.filterwarnings("ignore",category=FutureWarning)
+with warnings.catch_warnings():
+    warnings.filterwarnings("ignore", category=FutureWarning)
     import tensorflow as tf
     from tensorflow import keras
     from tensorflow.keras.preprocessing.text import Tokenizer
+
     stderr = sys.stderr
     stdout = sys.stdout
     err = None
@@ -23,9 +24,12 @@ with warnings.catch_warnings():
 
         sys.stderr = open(os.devnull, "w")
         sys.stdout = open(os.devnull, "w")
-        
+
         from deepcorrect import DeepCorrect
-        corrector = DeepCorrect(models.MODEL_PATHS["params"], models.MODEL_PATHS["checkpoint"])
+
+        corrector = DeepCorrect(
+            models.MODEL_PATHS["params"], models.MODEL_PATHS["checkpoint"]
+        )
     except Exception as e:
         err = e
     finally:
