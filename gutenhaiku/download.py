@@ -12,7 +12,9 @@ LINKS = dict(
 
 def download_models(click_progress_bar=None):
     with utils.supress_output():
-        spacy_cli.download("en_core_web_sm", False, '--quiet', '--disable-pip-version-check')
+        spacy_cli.download(
+            "en_core_web_sm", False, "--quiet", "--disable-pip-version-check"
+        )
 
     for what, url in LINKS.items():
         response = requests.get(url, stream=True)

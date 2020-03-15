@@ -3,6 +3,7 @@ import os
 import contextlib
 import warnings
 
+
 @contextlib.contextmanager
 def supress_output():
     with warnings.catch_warnings():
