@@ -33,6 +33,7 @@ silence_tensorflow = "^1.1.1"
 colorama = "^0.4.3"
 numpy = "1.16.4"
 tensorboard = "1.14.0"
+setuptools = ">=41.0.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.3.5"

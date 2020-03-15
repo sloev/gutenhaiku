@@ -205,22 +205,6 @@ version = "0.3.0"
 
 [[package]]
 category = "main"
-description = "English multi-task CNN trained on OntoNotes. Assigns context-specific token vectors, POS tags, dependency parse and named entities."
-name = "en_core_web_sm"
-optional = false
-python-versions = "*"
-version = "2.2.0"
-
-[package.dependencies]
-spacy = ">=2.2.0"
-
-[package.source]
-reference = ""
-type = "url"
-url = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.0/en_core_web_sm-2.2.0.tar.gz"
-
-[[package]]
-category = "main"
 description = "Python 3.4 Enum backported to 3.3, 3.2, 3.1, 2.7, 2.6, 2.5, and 2.4"
 name = "enum34"
 optional = false
@@ -933,7 +917,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "a96aadf3d94d7374295c1a24241a9e92fb05adbf11597ccc9cfbe955752b31b2"
+content-hash = "7ef1647393c0a5c026ff417dc4e54d047db830ea69ea03f5d3111a9baa8346ee"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1035,7 +1019,6 @@ deepcorrect = [
 distlib = [
     {file = "distlib-0.3.0.zip", hash = "sha256:2e166e231a26b36d6dfe35a48c4464346620f8645ed0ace01ee31822b288de21"},
 ]
-en_core_web_sm = []
 enum34 = [
     {file = "enum34-1.1.10-py2-none-any.whl", hash = "sha256:a98a201d6de3f2ab3db284e70a33b0f896fbf35f8086594e8c9e74b909058d53"},
     {file = "enum34-1.1.10-py3-none-any.whl", hash = "sha256:c3858660960c984d6ab0ebad691265180da2b43f07e061c0f8dca9ef3cffd328"},
