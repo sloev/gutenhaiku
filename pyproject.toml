@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "gutenhaiku"
+version = "1.0.0"
+description = "Guten Haiku extracts Haiku poems from text"
+authors = ["sloev <johannes.valbjorn@gmail.com>"]
+homepage = "https://github.com/sloev/gutenhaiku"
+repository = "https://github.com/sloev/gutenhaiku"
+keywords = ["gutenhaiku", "gutenberg", "haiku"]
+license = "MIT"
+readme = "README.md"
+classifiers=[
+        "Development Status :: 6 - Mature",
+        "Intended Audience :: Developers",
+        "Natural Language :: English",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+]
+exclude = ["tests"]
+include = [
+    "LICENSE",
+    "README.md",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+spacy_syllables = "^1.0.0"
+spacy = "^2.2.4"
+deepcorrect = "^1.0.5"
+tensorflow = "1.14.0"
+click = "^7.1.1"
+silence_tensorflow = "^1.1.1"
+colorama = "^0.4.3"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.3.5"
+black = "^19.10b0"
+nox = "^2019.11.9"
+pylint = "^2.4.4"
+
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
