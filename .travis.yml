@@ -14,7 +14,7 @@ before_install:
   - pip install poetry
 
 install:
-  - poetry install --no-root
+  - poetry install
 
 script:
   - poetry run nox --non-interactive --session "$NOXSESSION"
