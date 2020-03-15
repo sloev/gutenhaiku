@@ -47,7 +47,7 @@ def test_2_extract_haikus():
 
         haikus = [json.loads(l) for l in open("haikus.json").readlines()]
         print(json.dumps(haikus))
-
+        print(result.output)
         assert haikus == [
             {
                 "page": 0,
