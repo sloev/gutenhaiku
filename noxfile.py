@@ -18,7 +18,8 @@ def install_pyenv_versions(session):
 
 @nox.session(python=["3.7"], reuse_venv=True)
 def test(session):
-    session.run("pytest", "tests", silent=True)
+    session.run("gutenhaiku","setup")
+    session.run("pytest", "tests")
 
 
 @nox.session(python=["3.7"], reuse_venv=True)
