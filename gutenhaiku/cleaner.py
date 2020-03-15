@@ -17,11 +17,6 @@ from __future__ import absolute_import, unicode_literals
 from builtins import str
 import os
 
-try:
-    from tqdm import tqdm
-except:
-    tqdm = lambda x: x
-
 TEXT_START_MARKERS = frozenset(
     (
         "*END*THE SMALL PRINT",
@@ -116,7 +111,7 @@ LEGALESE_START_MARKERS = frozenset(("<<THIS ELECTRONIC VERSION OF",))
 LEGALESE_END_MARKERS = frozenset(("SERVICE THAT CHARGES FOR DOWNLOAD",))
 
 
-def strip_headers(text, progress_bar=tqdm):
+def strip_headers(text, progress_bar):
     """Remove lines that are part of the Project Gutenberg header or footer.
     Note: The original version of the code can be found at:
     https://github.com/c-w/gutenberg/blob/master/gutenberg/cleanup/strip_headers.py
@@ -125,8 +120,7 @@ def strip_headers(text, progress_bar=tqdm):
     Returns:
         unicode: The text with any non-text content removed.
     """
-    if progress_bar is None:
-        progress_bar = lambda x: x
+
     lines = text.splitlines()
     sep = str(os.linesep)
 

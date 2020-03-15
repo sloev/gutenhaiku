@@ -5,7 +5,7 @@ import click
 from click.exceptions import UsageError
 
 from colorama.ansi import Fore, Back, Style, clear_line, Cursor, clear_screen, set_title
-from gutenhaiko import models, download
+from gutenhaiku import models, download
 
 magenta = Style.BRIGHT + Fore.MAGENTA
 yellow = Style.BRIGHT + Fore.YELLOW
@@ -74,7 +74,7 @@ LOGO = (
     "                 ██╔══██║██╔══██║██║██╔═██╗ ██║   ██║\n"
     "                 ██║  ██║██║  ██║██║██║  ██╗╚██████╔╝\n"
     "                 ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝ ╚═════╝ \n"
-    f"\n                                         {green}by {magenta}Sloev" + "\n"*5
+    f"\n                                         {green}by {magenta}Sloev" + "\n" * 5
 )
 
 USAGE = (
@@ -87,7 +87,7 @@ USAGE = (
     + green
     + "Usage: ".ljust(17)
     + yellow
-    + f"{magenta}gutenhaiko{yellow} \\\n"
+    + f"{magenta}gutenhaiku{yellow} \\\n"
     + "                 -f frankenstein.txt \\\n"
     + "                 -a 'Mary Wollstonecraft Shelley' \\\n"
     + "                 -t 'frankenstein' \\\n"
@@ -103,7 +103,7 @@ USAGE = (
     + f"{yellow} [-e] eighties mode [default 1]"
     + green
     + "\n\n"
-    + f"Advanced usage:  {magenta}gutenhaiko{yellow} \\\n"
+    + f"Advanced usage:  {magenta}gutenhaiku{yellow} \\\n"
     + "                 -f frankenstein.txt \\\n"
     + "                 -a 'Mary Wollstonecraft Shelley' \\\n"
     + "                 -t 'frankenstein' \\\n"
@@ -144,11 +144,11 @@ def loading_sequence(*items):
 @click.option("--date", "-d", type=click.DateTime(), multiple=True)
 def cli(ctx, eighties, commandfile, outputfile, file, author, title, date):
     """Simple program that greets NAME for a total of COUNT times."""
-    click.echo(set_title('Guten Haiko'), nl=False)
+    click.echo(set_title("Guten Haiku"), nl=False)
     if ctx.invoked_subcommand is None:
         if not (commandfile or file):
             if eighties:
-                loading_sequence(("Loading Guten Haiko", LOGO), (None, USAGE))
+                loading_sequence(("Loading Guten Haiku", LOGO), (None, USAGE))
             else:
                 click.echo(USAGE)
             exit(0)
@@ -159,7 +159,7 @@ def cli(ctx, eighties, commandfile, outputfile, file, author, title, date):
             click.echo(f"{red}bad args: -f, -a, -t, -d needs to be same amount")
             exit(1)
         if eighties:
-            loading_sequence(("Loading Guten Haiko", LOGO))
+            loading_sequence(("Loading Guten Haiku", LOGO))
 
             click.echo(
                 magenta
@@ -179,7 +179,9 @@ def cli(ctx, eighties, commandfile, outputfile, file, author, title, date):
             click.echo(".", nl=False)
             time.sleep(0.2)
 
-            click.echo(f"\n{green}  Now we are ready to scan through the book, enjoy!\n")
+            click.echo(
+                f"\n{green}  Now we are ready to scan through the book, enjoy!\n"
+            )
 
         for f, a, t, d in zip(file, author, title, date):
             for data in pipeline.process_generator(
@@ -191,33 +193,38 @@ def cli(ctx, eighties, commandfile, outputfile, file, author, title, date):
                 if eighties:
                     click.echo(clear_line())
                     click.echo(format_haiku_json(**data))
-                outputfile.write(json.dumps(data)+"\n")
+                outputfile.write(json.dumps(data) + "\n")
 
         click.echo(clear_line())
         if eighties:
             click.echo(f"\n{green}  All done, have a great day!\n")
+
 
 def show_help(*args, **kwargs):
     click.echo(LOGO)
     click.echo(USAGE)
     try:
         self = args[0]
-        click.echo(red + f'Error: {self.format_message()}')
+        click.echo(red + f"Error: {self.format_message()}")
     except:
+        logging.exception("fuck")
         pass
+
 
 UsageError.show = show_help
 cli.get_help = show_help
+
 
 @cli.command()
 def help():
     show_help()
 
+
 @cli.command()
 @click.option("--eighties", "-e", type=bool, default=True)
 def setup(eighties):
     if eighties:
-        loading_sequence(("Loading Guten Haiko", LOGO))
+        loading_sequence(("Loading Guten Haiku", LOGO))
     if models.MODELS_ARE_DOWNLOADED:
         click.echo(green + "Models are already downloaded, exiting")
         exit(0)

@@ -1,0 +1,29 @@
+language: python
+
+dist: xenial
+
+matrix:
+  include:
+  - python: '3.7'
+    env: NOXSESSION="test-3.7"
+  - python: '3.8'
+    env: NOXSESSION="test-3.8"
+  - python: '3.7'
+    env: NOXSESSION="lint"
+    
+before_install:
+  - pip install --upgrade pip
+  - pip install poetry
+
+install:
+  - poetry install
+
+script:
+  - poetry run nox --non-interactive --session "$NOXSESSION"
+
+branches:
+  only:
+    - master
+
+notifications:
+  email: false

@@ -1,37 +1,40 @@
 import os
 import logging
 import json
-
-import warnings
-
-warnings.filterwarnings("ignore")
-
-import sys
-
-stderr = sys.stderr
-stdout = sys.stdout
-
-sys.stderr = open(os.devnull, "w")
-sys.stdout = open(os.devnull, "w")
-
 import silence_tensorflow.auto
 
+import warnings
+import sys
 import spacy
 from spacy_syllables import SpacySyllables
 from collections import defaultdict, Counter
-from deepcorrect import DeepCorrect
 from gutenhaiku.cleaner import strip_headers
 from gutenhaiku import models
 
-try:
-    from tqdm import tqdm
-except ImportError:
-    tqdm = lambda x: x
+with warnings.catch_warnings():  
+    warnings.filterwarnings("ignore",category=FutureWarning)
+    import tensorflow as tf
+    from tensorflow import keras
+    from tensorflow.keras.preprocessing.text import Tokenizer
+    stderr = sys.stderr
+    stdout = sys.stdout
+    err = None
+    try:
 
-corrector = DeepCorrect(
-    models.MODEL_PATHS['params'],
-    models.MODEL_PATHS['checkpoint']
-)
+        sys.stderr = open(os.devnull, "w")
+        sys.stdout = open(os.devnull, "w")
+        
+        from deepcorrect import DeepCorrect
+        corrector = DeepCorrect(models.MODEL_PATHS["params"], models.MODEL_PATHS["checkpoint"])
+    except Exception as e:
+        err = e
+    finally:
+        sys.stdout = stdout
+        sys.stderr = stderr
+
+    if err:
+        raise err
+
 
 nlp = spacy.load("en_core_web_sm")
 
@@ -42,14 +45,8 @@ nlp.add_pipe(syllables, after="tagger")
 IGNORE_POS = set(["SPACE", "PUNCT"])
 REPLACE_CHARACTERS = str.maketrans({key: None for key in "!\"';?_-0123456789"})
 
-sys.stdout = stdout
-sys.stderr = stderr
 
-
-def process_generator(text, progress_bar=tqdm):
-    if progress_bar is None:
-        progress_bar = lambda x: x
-
+def process_generator(text, progress_bar):
     CURRENT_HAIKU = defaultdict(list)
     ALLOWED_SUMS = [5, 7, 5]
     CURRENT_LINE = 0
