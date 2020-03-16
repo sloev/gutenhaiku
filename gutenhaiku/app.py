@@ -82,7 +82,7 @@ USAGE = (
     + green
     + "Wat?".ljust(17)
     + magenta
-    + f"Guten Haiko {yellow}lets you extract haiku poems from text"
+    + f"Guten Haiku {yellow}lets you extract haiku poems from text"
     "\n"
     + green
     + "Usage: ".ljust(17)
