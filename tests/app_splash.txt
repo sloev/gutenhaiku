@@ -33,7 +33,7 @@
 
 
 
-Wat?             Guten Haiko lets you extract haiku poems from text
+Wat?             Guten Haiku lets you extract haiku poems from text
 Usage:           gutenhaiku \
                  -f frankenstein.txt \
                  -a 'Mary Wollstonecraft Shelley' \

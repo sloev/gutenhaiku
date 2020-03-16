@@ -32,7 +32,7 @@ $ gutenhaiku -f frankenstein.txt -a 'mary shelley' -t 'frankenstein' -d '1818-01
 <a target="_blank" href="https://asciinema.org/a/9dSu3L5D7OzaOg1p5lOXNF8TC"><img src="https://github.com/sloev/gutenhaiku/raw/master/assets/gutenhaiku.gif" width="600"/></a>
 
 ```bash
-Wat?             Guten Haiko lets you extract haiku poems from text
+Wat?             Guten Haiku lets you extract haiku poems from text
 Usage:           gutenhaiku \
                  -f frankenstein.txt \
                  -a 'Mary Wollstonecraft Shelley' \
