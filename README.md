@@ -1,8 +1,10 @@
 <img src="https://github.com/sloev/gutenhaiku/raw/master/assets/header.png" width="400"/>
 
-# Guten Haiku
+# Guten Haiku 
 
 [![Build Status](https://travis-ci.org/sloev/gutenhaiku.svg?branch=master)](https://travis-ci.org/sloev/gutenhaiku) [![Latest Version](https://img.shields.io/pypi/v/gutenhaiku.svg)](https://pypi.python.org/pypi/gutenhaiku) [![Python Support](https://img.shields.io/pypi/pyversions/gutenhaiku.svg)](https://pypi.python.org/pypi/gutenhaiku)
+
+<a href="https://www.buymeacoffee.com/sloev" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-pink.png" alt="Buy Me A Coffee" height="51px" width="217px"></a>
 
 A Commandline tool to mine haiku poems from text
 
