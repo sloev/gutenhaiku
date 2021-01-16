@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gutenhaiku"
-version = "1.0.1"
+version = "2.0.1"
 description = "A Commandline tool to mine haiku poems from text"
 authors = ["sloev <johannes.valbjorn@gmail.com>"]
 homepage = "https://github.com/sloev/gutenhaiku"
@@ -26,10 +26,11 @@ spacy_syllables = "^1.0.0"
 spacy = "^2.2.4"
 deepcorrect = "^1.0.5"
 tensorflow = "1.14.0"
+keras = "2.2.5"
 click = "^7.1.1"
 silence_tensorflow = "^1.1.1"
 colorama = "^0.4.3"
-numpy = "1.16.4"
+numpy = "1.19.5"
 tensorboard = "1.14.0"
 setuptools = ">=41.0.0"
 

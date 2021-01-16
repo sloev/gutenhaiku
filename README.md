@@ -15,6 +15,8 @@ A Commandline tool to mine haiku poems from text
 
 ## Install
 
+**tested on python 3.7, not guaranteed to woke on 3.8 or 3.9**
+
 ```bash
 $ pip install gutenhaiku
 ```

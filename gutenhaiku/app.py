@@ -207,12 +207,9 @@ def cli(ctx, eighties, commandfile, outputfile, file, author, title, date):
 def show_help(*args, **kwargs):
     click.echo(LOGO)
     click.echo(USAGE)
-    try:
-        self = args[0]
-        click.echo(red + f"Error: {self.format_message()}")
-    except:
-        logging.exception("fuck")
-        pass
+
+    self = args[0]
+    click.echo(red + f"Error: {self.format_message()}")
 
 
 UsageError.show = show_help
